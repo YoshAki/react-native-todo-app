@@ -14,7 +14,7 @@ import {
 // Redux
 import { connect } from "react-redux";
 
-import { deleteTodo } from "../store/actions/index";
+import { deleteTodo, toggleTodo } from "../store/actions/index";
 
 const TodoList = props => {
   const todoList = props.todos.todos;
@@ -28,8 +28,11 @@ const TodoList = props => {
   // };
 
   const onDelete = todo => {
-    console.log(todo);
     props.deleteTodo({ todo });
+  };
+
+  const onChecked = id => {
+    props.toggleTodo({ id });
   };
 
   return (
@@ -37,7 +40,10 @@ const TodoList = props => {
       {todoList.map(todo => {
         return (
           <ListItem key={todo.id}>
-            <CheckBox checked={todo.isComplete} />
+            <CheckBox
+              checked={todo.isComplete}
+              onPress={() => onChecked(todo.id)}
+            />
             <Body>
               <Text>{todo.body}</Text>
             </Body>
@@ -59,7 +65,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = { deleteTodo };
+const mapDispatchToProps = { deleteTodo, toggleTodo };
 
 export default connect(
   mapStateToProps,

@@ -11,3 +11,10 @@ export const deleteTodo = ({ todo }) => {
     todo
   };
 };
+
+export const toggleTodo = ({ id }) => {
+  return {
+    type: "TOGGLE_TODO",
+    id
+  };
+};

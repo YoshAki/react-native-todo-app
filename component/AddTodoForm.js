@@ -7,7 +7,6 @@ import { addTodo } from "../store/actions/index.js";
 import { Field, reduxForm } from "redux-form";
 
 const AddTodoForm = props => {
-  //const { inputValue, changeInput } = props;
   const { handleSubmit } = props;
 
   const onSubmit = values => {
@@ -16,11 +15,6 @@ const AddTodoForm = props => {
     });
   };
 
-  //const onSubmit = values => console.log(values);
-
-  // const renderInput = ({ input: { onChange, ...input }, ...rest }) => {
-  //   return <TextInput onChangeText={onChange} {...input} {...rest} />;
-  // };
   // フォームの入力用コンポーネント。
   const renderInput = ({
     input,
@@ -28,20 +22,25 @@ const AddTodoForm = props => {
     label,
     meta: { touched, error }
   }) => {
-    return <TextInput {...input} placeholder={placeholder} />;
+    return <Input {...input} placeholder={placeholder} />;
   };
 
   return (
-    <View>
+    <Item>
       <Field
         name="body"
         props={{
-          placeholder: "body"
+          placeholder: "todo..."
         }}
         component={renderInput}
       />
-      <Button title="Submit" onPress={handleSubmit(onSubmit)} />
-    </View>
+      <Icon
+        type="Feather"
+        name="plus"
+        title="Submit"
+        onPress={handleSubmit(onSubmit)}
+      />
+    </Item>
   );
 };
 

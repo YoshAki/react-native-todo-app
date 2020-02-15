@@ -16,7 +16,7 @@ const Layout = props => {
     <Container>
       <Header>
         <Body>
-          <Title>Hooks Todo List</Title>
+          <Title>Todo List</Title>
         </Body>
       </Header>
       <Content>

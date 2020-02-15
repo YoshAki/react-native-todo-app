@@ -3,7 +3,6 @@ const initialState = {
 };
 
 const todoReducer = (state = initialState, action) => {
-  console.log(action.type);
   switch (action.type) {
     case "ADD_TODO":
       return {
@@ -14,6 +13,15 @@ const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         todos: state.todos.filter(todo => todo.id !== action.todo.id)
+      };
+    case "TOGGLE_TODO":
+      return {
+        ...state,
+        todos: state.todos.map(todo =>
+          todo.id === action.id
+            ? { ...todo, isComplete: !todo.isComplete }
+            : todo
+        )
       };
     default:
       return state;
