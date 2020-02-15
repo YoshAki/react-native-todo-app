@@ -1,9 +1,13 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native'
-import TodoList from './component/TodoList'
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import Layout from "./component/Layout";
+
+// Reduxでstoreに接続するためのProvider
+import { Provider } from "react-redux";
+import store from "./store/index";
 
 // ローディング待ち
-import { AppLoading } from 'expo';
+import { AppLoading } from "expo";
 
 // native-base用モジュール
 import * as Font from "expo-font";
@@ -33,7 +37,9 @@ export default class App extends React.Component {
     }
 
     return (
-      <TodoList />
+      <Provider store={store}>
+        <Layout />
+      </Provider>
     );
   }
 }

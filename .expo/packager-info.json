@@ -2,8 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 27634,
-  "expoServerNgrokUrl": "https://9h-rq9.yoshaki.react-native-todo-app.exp.direct",
-  "packagerNgrokUrl": "https://packager.9h-rq9.yoshaki.react-native-todo-app.exp.direct",
-  "ngrokPid": 27654
+  "packagerPid": 33475,
+  "expoServerNgrokUrl": "https://3u-nj8.yoshaki.react-native-todo-app.exp.direct",
+  "packagerNgrokUrl": "https://packager.3u-nj8.yoshaki.react-native-todo-app.exp.direct",
+  "ngrokPid": 33496,
+  "webpackServerPort": null
 }
