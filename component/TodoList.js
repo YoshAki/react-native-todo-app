@@ -7,17 +7,17 @@ import {
   ListItem,
   Text,
   CheckBox,
-  Body
+  Body,
+  Icon
 } from "native-base";
-import AddTodoForm from "./AddTodoForm";
 
 // Redux
 import { connect } from "react-redux";
-import { addTodo } from "../store/actions/index.js";
+
+import { deleteTodo } from "../store/actions/index";
 
 const TodoList = props => {
-  const todos = props.value;
-  // const todos = props.todos;
+  const todoList = props.todos.todos;
 
   // const [todos, setTodos] = useState(this.props.value);
   //const todos = this.props.value;
@@ -27,15 +27,25 @@ const TodoList = props => {
   //   setTodos([...todos, todo]);
   // };
 
+  const onDelete = todo => {
+    console.log(todo);
+    props.deleteTodo({ todo });
+  };
+
   return (
     <List>
-      {todos.map(todo => {
+      {todoList.map(todo => {
         return (
           <ListItem key={todo.id}>
             <CheckBox checked={todo.isComplete} />
             <Body>
               <Text>{todo.body}</Text>
             </Body>
+            <Icon
+              type="FontAwesome"
+              name="trash-o"
+              onPress={() => onDelete(todo)}
+            />
           </ListItem>
         );
       })}
@@ -49,7 +59,8 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = { addTodo };
+const mapDispatchToProps = { deleteTodo };
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

@@ -9,12 +9,6 @@ import { connect } from "react-redux";
 import { addTodo } from "../store/actions/index.js";
 
 const Layout = props => {
-  const addTodo = () => {
-    props.addTodo({
-      todo: { id: 4, body: "Create Todo App", isComplete: true }
-    });
-  };
-
   //
   //   const [todos, setTodos] = useState(todoList);
 
@@ -27,7 +21,7 @@ const Layout = props => {
       </Header>
       <Content>
         <AddTodoForm />
-        <TodoList value={props.todos} />
+        <TodoList />
       </Content>
     </Container>
   );

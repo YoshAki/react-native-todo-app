@@ -1,8 +1,16 @@
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
 import todoReducer from "./reducers/index";
+
+import { reducer as reduxFormReducer } from "redux-form";
+
 // Debug用
 import { composeWithDevTools } from "redux-devtools-extension";
 
-const store = createStore(todoReducer, composeWithDevTools());
+const rootReducer = combineReducers({
+  todos: todoReducer,
+  form: reduxFormReducer
+});
+
+const store = createStore(rootReducer, composeWithDevTools());
 
 export default store;
